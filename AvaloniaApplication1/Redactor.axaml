@@ -1,0 +1,90 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="650" MaxWidth="800" MinWidth="800" MaxHeight="850" MinHeight="850" WindowState="Maximized"
+        x:Class="AvaloniaApplication1.Redactor"
+        Title="Redactor" x:CompileBindings="False">
+	<Grid>
+		<StackPanel>
+			<TextBlock x:Name="Id"  Margin="0,20,0,0" Text="Id"></TextBlock>
+		</StackPanel>
+		<StackPanel>
+			<TextBox x:Name="Familia" MaxLength="50"   Margin="0,50,0,0" Width="180" HorizontalAlignment="Left" Watermark="Familia"></TextBox>
+		</StackPanel>
+		<StackPanel>
+			<TextBox x:Name="Name" MaxLength="50"   Margin="0,90,0,0"  Width="180" HorizontalAlignment="Left"  Watermark="Name"></TextBox>
+		</StackPanel>
+		<StackPanel>
+			<TextBox x:Name="Otchestvo" MaxLength="50"  Margin="0,130,0,0"  Width="180" HorizontalAlignment="Left"  Watermark="Otchestvo"></TextBox>
+		</StackPanel>
+		<StackPanel>
+			<TextBox x:Name="Email"  Margin="0,170,0,0"  Width="180" HorizontalAlignment="Left"  Watermark="email"></TextBox>
+		</StackPanel>
+		<StackPanel>
+			<TextBox x:Name="Telefon"   Margin="0,210,0,0"  Width="180" HorizontalAlignment="Left"  Watermark="Telefon"></TextBox>
+		</StackPanel>
+
+		<ListBox x:Name="TagList" Width="150" Height="300" Margin="500,0,0,500" ItemsSource="{Binding Tagsss}">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Grid>
+						<StackPanel>
+							<TextBlock  Background="{Binding Color}"  Text="{Binding Name}"></TextBlock>
+						</StackPanel>
+					</Grid>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+		<ToggleSwitch
+					Name="tgswictch_gender"
+					OnContent="Мужской"
+					OffContent="Женский"
+					IsChecked="true"
+					HorizontalAlignment="Left"/>
+		<StackPanel>
+			<Button Margin="0,600,0,0" HorizontalAlignment="Center" x:Name="SaveBut" Content="Сохранить" Click="Button_Click" ></Button>
+		</StackPanel>
+		<StackPanel>
+			<Button Margin="0,600,500,0" HorizontalAlignment="Center" x:Name="Exit" Content="Назад" Click="Button_Click_1" ></Button>
+		</StackPanel>
+		<StackPanel Margin="350,400,0,0">
+			<TextBlock
+				Text="Изображение:"/>
+			<Image
+				Name="image_clientPhoto"
+				IsVisible="False"
+				Height="120"
+				HorizontalAlignment="Left"/>
+			<TextBlock
+				Name="tblock_clientPhoto"
+				IsVisible="False"/>
+			<StackPanel
+				Orientation="Horizontal">
+				<Button
+					Name="btn_deleteImage"
+					Content="Удалить"
+					IsVisible="False"
+					Click="ImageSelection"/>
+				<Button
+					Name="btn_addImage"
+					Content="Добавить"
+					Click="ImageSelection"/>
+			</StackPanel>
+		</StackPanel>
+		<StackPanel>
+			<Calendar
+					Name="calendar_birthday"
+					SelectionMode="SingleDate"
+					HorizontalAlignment="Center"
+					VerticalAlignment="Top"
+					Margin="7"/>
+		</StackPanel>
+		<StackPanel>
+			<Button Margin="220,600,0,0" Click="Button_Click_2">Удалить</Button>
+		</StackPanel>
+		<StackPanel>
+			<Button Margin="570,350,0,0" Click="Button_Click_3"  >Редактировать теги</Button>
+		</StackPanel>
+	</Grid>
+</Window>

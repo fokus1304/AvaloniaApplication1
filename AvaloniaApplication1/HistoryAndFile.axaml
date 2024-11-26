@@ -1,0 +1,46 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="650" MaxWidth="800" MinWidth="800" MaxHeight="850" MinHeight="850" WindowState="Maximized"
+        x:Class="AvaloniaApplication1.HistoryAndFile"
+        Title="HistoryAndFile" x:CompileBindings="False">
+	<Grid>
+		<StackPanel>
+			<TextBlock Margin="80,20,0,0" x:Name="Name_Pers">jjj </TextBlock>
+		</StackPanel>
+		<StackPanel>
+			<TextBlock Margin="80,50,0,0" >Файлы </TextBlock>
+		</StackPanel>
+		<ListBox x:Name="FileList" Width="250" Height="300" Margin="0,20,500,400">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Grid>
+						<StackPanel>
+							<TextBlock Text="{Binding File}"></TextBlock>
+						</StackPanel>
+					</Grid>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+		<StackPanel>
+			<TextBlock Margin="480,50,0,0">История посещений </TextBlock>
+		</StackPanel>
+		<ListBox x:Name="PosList2" Width="350" Height="300" Margin="300,20,0,400">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Grid>
+						<StackPanel>
+							<TextBlock Text="{Binding Data}"></TextBlock>
+							<TextBlock Text="{Binding Time}"></TextBlock>
+						</StackPanel>
+					</Grid>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+		<StackPanel>
+			<Button Content="Назад" Click="Button_Click" Margin="80,500,0,0"></Button>
+		</StackPanel>
+
+	</Grid>
+</Window>

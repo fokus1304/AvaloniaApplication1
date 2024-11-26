@@ -1,0 +1,190 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"  WindowState="Maximized" d:DesignWidth="1920" d:DesignHeight="1080" MaxWidth="1920" MinWidth="1920" MaxHeight="1080" MinHeight="1080"
+        x:Class="AvaloniaApplication1.MainWindow"
+        Title="AvaloniaApplication1" x:CompileBindings="False">
+	<Grid>
+		<StackPanel>
+			<TextBlock Margin="30,130,0,0" Text="Id"></TextBlock>
+		</StackPanel>
+		<StackPanel>
+			<TextBlock Margin="110,130,0,0" Text="Фото"></TextBlock>
+		</StackPanel>
+		<StackPanel>
+			<TextBlock Margin="230,130,0,0" Text="Имя"></TextBlock>
+		</StackPanel>
+		<StackPanel>
+			<TextBlock Margin="340,130,0,0" Text="Отчество"></TextBlock>
+		</StackPanel>
+		<StackPanel>
+			<TextBlock Margin="450,130,0,0" Text="Фамилия"></TextBlock>
+		</StackPanel>
+		<StackPanel>
+			<TextBlock Margin="600,130,0,0" Text="Пол"></TextBlock>
+		</StackPanel>
+		<StackPanel>
+			<TextBlock Margin="700,130,0,0" Text="Дата Рождения"></TextBlock>
+		</StackPanel>
+		<StackPanel>
+			<TextBlock Margin="860,130,0,0" Text="Регистрация"></TextBlock>
+		</StackPanel>
+		<StackPanel>
+			<TextBlock Margin="1000,130,0,0" Text="Номер"></TextBlock>
+		</StackPanel>
+		<StackPanel>
+			<TextBlock Margin="1160,130,0,0" Text="Почта"></TextBlock>
+		</StackPanel>
+		<StackPanel>
+			<TextBlock Margin="1300,130,0,0" Text="Последний визит"></TextBlock>
+		</StackPanel>
+		<StackPanel>
+			<TextBlock Margin="1450,130,0,0" Text="Количество"></TextBlock>
+		</StackPanel>
+		<StackPanel>
+			<TextBox x:Name="Search" Margin="100,50,0,0" Width="400" HorizontalAlignment="Left" Watermark="Поиск"></TextBox>
+		</StackPanel>
+		<StackPanel>
+			<ComboBox x:Name="FiltrPol" Margin="100,50,100,0" HorizontalAlignment="Right" SizeChanged="ComboBox_SizeChanged">
+				<ComboBoxItem>Все</ComboBoxItem>
+				<ComboBoxItem>Мужчины</ComboBoxItem>
+				<ComboBoxItem>Женщины</ComboBoxItem>
+			</ComboBox>
+		</StackPanel>
+		<StackPanel>
+			<ComboBox  Margin="50,50,20,0" HorizontalAlignment="Right"
+						Name="cbox_display"
+						SelectionChanged="ComboBox_SelectionChanged"
+						>
+				<ComboBoxItem Content="Все"/>
+				<ComboBoxItem Content="10"/>
+				<ComboBoxItem Content="50"/>
+				<ComboBoxItem Content="200"/>
+			</ComboBox>
+		</StackPanel>
+		<StackPanel>
+			<ComboBox x:Name="Filtr" Margin="0,50,250,0" SizeChanged="ComboBox_SizeChanged_2" HorizontalAlignment="Right">
+				<ComboBoxItem>Все</ComboBoxItem>
+				<ComboBoxItem>По Фамилии</ComboBoxItem>
+				<ComboBoxItem>По количеству</ComboBoxItem>
+				<ComboBoxItem>По Дате</ComboBoxItem>
+			</ComboBox>
+		</StackPanel>
+		<ListBox x:Name="ListPers" Width="1600" Height="500">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Grid>
+						<StackPanel>
+							<TextBlock Margin="60,50,0,0" Text="{Binding Id}"></TextBlock>
+						</StackPanel>
+						<StackPanel>
+							<Button Margin="300,70,0,0"
+								Name="btn_red"
+								Click="Button_Click_2"
+								Content="Редактировать"
+								Tag="{Binding Id}"
+								/>
+						</StackPanel>
+						<StackPanel>
+							<Image Height="100" Margin="100,0,0,0" HorizontalAlignment="Left" Width="150"  Source="{Binding photo}"></Image>
+						</StackPanel>
+						<StackPanel>
+							<TextBlock Margin="240,0,0,0" Text="{Binding Name}"></TextBlock>
+						</StackPanel>
+						<StackPanel>
+							<TextBlock Margin="350,0,0,0" Text="{Binding MiddleName}"></TextBlock>
+						</StackPanel>
+						<StackPanel>
+							<TextBlock Margin="480,0,0,0" Text="{Binding Surname}"></TextBlock>
+						</StackPanel>
+						<StackPanel>
+							<TextBlock Margin="600,0,0,0" Text="{Binding Gender}"></TextBlock>
+						</StackPanel>
+						<StackPanel>
+							<TextBlock Margin="720,0,0,0" Text="{Binding Birthday}"></TextBlock>
+						</StackPanel>
+						<StackPanel>
+							<TextBlock Margin="880,0,0,0" Text="{Binding DateRegistr}"></TextBlock>
+						</StackPanel>
+						<StackPanel>
+							<TextBlock Margin="1010,0,0,0" Text="{Binding NumberPhone}"></TextBlock>
+						</StackPanel>
+						<StackPanel>
+							<TextBlock Margin="1160,0,0,0" Text="{Binding EmailAdress}"></TextBlock>
+						</StackPanel>
+						<StackPanel>
+							<TextBlock Margin="1350,0,0,0" Text="{Binding DateRegistr}"></TextBlock>
+						</StackPanel>
+						<StackPanel>
+							<TextBlock Margin="1500,0,0,0" Text="{Binding ColvoVisit}"></TextBlock>
+						</StackPanel>
+						<StackPanel>
+							<Button Margin="500,70,0,0" Name="History" Tag="{Binding Id}" Click="Button_Click_3" Content="История посещения "></Button>
+						</StackPanel>
+						<StackPanel>
+
+							<ListBox ItemsSource="{Binding Tagsss}" Width="180" Height="80"  Margin="0,30,0,0">
+								<ListBox.ItemTemplate>
+									<DataTemplate>
+										<Grid>
+											<StackPanel >
+												<TextBlock  Background="{Binding Color}"  Text="{Binding Name}"></TextBlock>
+											</StackPanel>
+										</Grid>
+									</DataTemplate>
+								</ListBox.ItemTemplate>
+							</ListBox>
+						</StackPanel>
+					</Grid>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+
+		<StackPanel>
+			<TextBlock Margin="300,720,0,0" HorizontalAlignment="Center" Width="400" x:Name="ColvoText">cvddf</TextBlock>
+		</StackPanel>
+		<StackPanel
+				Orientation="Vertical"
+				HorizontalAlignment="Center"
+				VerticalAlignment="Top"
+				 Margin="750,700,0,0">
+			<TextBlock
+				Name="tblock_page"
+				Text="Страница:"
+				IsVisible="False"
+				/>
+			<TextBlock
+				Name="tblock_pageCount"
+				IsVisible="False"
+				/>
+		</StackPanel>
+		<StackPanel>
+			<Button
+	Name="btn_nazad"
+	Content="Предыдущая страница"
+	Click="Stranich"
+			
+	VerticalAlignment="Top" HorizontalAlignment="Left"
+	Margin="15,720,0,0"/>
+		</StackPanel>
+		<StackPanel>
+			<Button
+				Name="btn_next"
+				Click="Stranich"
+				Content="Следующая страница"
+				
+				VerticalAlignment="Top" HorizontalAlignment="Left"
+				Margin="220,720,0,0"/>
+		</StackPanel>
+		<StackPanel>
+			<Button
+				Name="newClient"
+				Click="Button_Click_1"
+				Content="Новый клиент"
+				
+				VerticalAlignment="Top" HorizontalAlignment="Left"
+				Margin="220,770,0,0"/>
+		</StackPanel>
+	</Grid>
+</Window>
